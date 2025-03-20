@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, orange, yellow);
+            font-family: 'Roboto', sans-serif;
+            color: black;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 220px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #1f4068;
+            padding: 20px 0;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li a {
+            padding: 15px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #fda085;
+            color: black;
+        }
+
+
+        h3 {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        button {
+            margin: 0;
+            position: absolute;
+            width: 80%;
+            top: 102%;
+        }
+
+        .hasil{
+            margin: 0;
+            position: absolute;
+            width: 80%;
+        }
+
+        .btn-spacing {
+            margin-right: 10px; /* Tambahkan jarak antar tombol */
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="{{ url_for('welcome') }}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('index') }}"><i class="fas fa-chart-bar"></i> Prediksi</a></li>
+            <li><a href="{{ url_for('history') }}"><i class="fas fa-sign-out-alt"></i> Tampilan data</a></li>
+            <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h3>Tampilan Data</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kehamilan</th>
+                    <th>Gula Darah</th>
+                    <th>Tekanan Darah</th>
+                    <th>Ketebalan Kulit</th>
+                    <th>Insulin</th>
+                    <th>Berat Badan</th>
+                    <th>Tinggi Badan</th>
+                    <th>Riwayat Diabetes</th>
+                    <th>Umur</th>
+                    <th>Hasil</th>
+                    <th>Algoritma</th>
+                    <th>Akurasi</th>
+                    <th>Tanggal</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in user_data.itertuples() %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ row.pregnancies }}</td>
+                    <td>{{ row.glucose }}</td>
+                    <td>{{ row.blood }}</td>
+                    <td>{{ row.skin }}</td>
+                    <td>{{ row.insulin }}</td>
+                    <td>{{ row.weight }}</td>
+                    <td>{{ row.height }}</td>
+                    <td>{{ row.dpf }}</td>
+                    <td>{{ row.age }}</td>
+                    <td>{{ row.outcome }}</td>
+                    <td>{{ row.algorithm }}</td>
+                    <td>{{ row.accuracy }}</td>
+                    <td>{{ row.waktu.strftime('%d %B %Y') }}</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <a href="{{ url_for('update', record_id=row.id) }}" class="btn btn-primary btn-sm btn-spacing">Update</a>
+                            <a href="{{ url_for('delete', record_id=row.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

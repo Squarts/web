@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, orange, yellow);
+            font-family: 'Roboto', sans-serif;
+            color: black;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 220px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #1f4068;
+            padding: 20px 0;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li a {
+            padding: 15px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #fda085;
+            color: black;
+        }
+
+        main {
+            padding: 40px;
+            margin-left: 240px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        section {
+            flex: 1;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin-right: 50px;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #1f4068;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="{{ url_for('welcome') }}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('index') }}"><i class="fas fa-chart-bar"></i> Prediksi</a></li>
+            <li><a href="{{ url_for('history') }}"><i class="fas fa-sign-out-alt"></i> Tampilan data</a></li>
+            <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section>
+            <h2>Bahaya Diabetes</h2>
+            <p>1. Gangguan Penglihatan: Retinopati diabetik dapat mengganggu penglihatan, bahkan menyebabkan kebutaan jika tidak segera ditangani.</p>
+            <p>2. Masalah Ginjal (Nefropati): Diabetes adalah salah satu penyebab utama gagal ginjal, yang dapat memerlukan cuci darah atau transplantasi ginjal.</p>
+            <p>3. Kerusakan Saraf (Neuropati): Kadar gula darah tinggi bisa merusak saraf, terutama di area kaki, yang bisa menyebabkan mati rasa, nyeri, bahkan amputasi jika infeksi parah terjadi.</p>
+        </section>
+
+        <section>
+            <h2>Gejala Awal Diabetes</h2>
+            <p>1. Sering merasa haus meskipun sudah cukup minum.</p>
+            <p>2. Sering buang air kecil, terutama di malam hari.</p>
+            <p>3. Mudah merasa lelah meski tidak beraktivitas berat.</p>
+        </section>
+    </main>
+
+    <main>
+        <section>
+            <h2>Rekomendasi Gaya Hidup Sehat</h2>
+            <p>1. Jaga pola makan sehat seperti kurangi konsumsi gula.</p>
+            <p>2. Minum air putih secukupnya setidaknya 2-3 liter per hari.</p>
+            <p>3. Rutin berolahraga minimal 30 menit per hari.</p>
+            <p>4. Istirahat yang cukup setidaknya 7-9 jam per hari.</p>
+            <p>5. Mengontrol berat badan sangatlah penting untuk menghindari diabetes.</p>
+        </section>
+
+        <section>
+            <h2>Apa yang perlu dilakukan jika terkena diabetes ?</h2>
+            <p>1. Rutin melakukan pemeriksaan kesehatan.</p>
+            <p>2. Jaga pola makan sehat dengan membatasi konsumsi gula.</p>
+            <p>3. Hindari stres karena dapat meningkatkan kadar gula darah.</p>
+            <p>4. Mengomsumsi obat sesuai dengan resep dokter.</p>
+        </section>
+    </main>
+
+    <!-- Link ke Bootstrap JS dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

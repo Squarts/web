@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <!-- Link ke Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+         body {
+            background-image: linear-gradient(to bottom, blue, green);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 400px;
+        }
+        .form-control {
+            margin-bottom: 20px;
+            border-radius: 50px;
+            padding: 15px;
+        }
+        .form-control:hover {
+            background-color: #f1f1f1;
+        }
+        .register-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 28px;
+            color: red;
+        }
+        .btn {
+            background-color: red;
+            color: white;
+            border-radius: 50px;
+            padding: 12px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: green;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2 class="register-title">Register</h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <!-- Form registrasi -->
+        <form action method="post">
+            <input type="text" class="form-control" id="username" name="username" required placeholder="Username">
+            <input type="password" class="form-control" id="password" name="password" requirequired placeholder="Password"red>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" requirequired placeholder="Konfirmasi Password"red>
+            <button type="submit" class="btn btn-success btn-block" name="register">Register</button>
+        </form>
+        <hr><p class="text-center">Sudah punya akun? <a href="{{ url_for('login') }}">Login di sini</a></p>
+    </div>
+
+    <!-- Link ke Bootstrap JS dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
